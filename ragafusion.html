@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RagaFusion - AI Music Generator</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #141e30, #243b55);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+    .app-container {
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+      width: 90%;
+      max-width: 600px;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 1rem;
+      color: #00e6e6;
+    }
+    textarea, select, button {
+      width: 100%;
+      padding: 1rem;
+      margin-top: 1rem;
+      font-size: 1rem;
+      border-radius: 8px;
+      border: none;
+    }
+    textarea {
+      height: 120px;
+    }
+    button {
+      background-color: #1db954;
+      color: white;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    audio {
+      margin-top: 2rem;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div class="app-container">
+    <h1>🎶 RagaFusion</h1>
+    <textarea id="lyrics" placeholder="Write your lyrics here..."></textarea>
+    <select id="language">
+      <option value="en">English</option>
+      <option value="hi">Hindi</option>
+    </select>
+    <button onclick="generateMusic()">Generate Music</button>
+    <audio id="audioPlayer" controls style="display:none;"></audio>
+  </div>
+
+  <script>
+    function generateMusic() {
+      const lyrics = document.getElementById('lyrics').value;
+      const lang = document.getElementById('language').value;
+
+      if (!lyrics.trim()) {
+        alert('Please enter lyrics to generate music.');
+        return;
+      }
+
+      // Placeholder: Simulate API call & play demo audio
+      const audio = document.getElementById('audioPlayer');
+      audio.src = "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3";
+      audio.style.display = "block";
+      audio.play();
+
+      alert(`Generating ${lang === 'hi' ? 'Hindi' : 'English'} music for your lyrics...`);
+    }
+  </script>
+</body>
+</html>
